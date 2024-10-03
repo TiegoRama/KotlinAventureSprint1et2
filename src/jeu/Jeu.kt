@@ -1,7 +1,8 @@
 package jeu
 
-import Classe.Guerrier
+import Classes.Guerrier
 import Classe.Mage
+import Classe.Sort
 import Classe.Voleur
 import personnage.Personnage
 
@@ -108,10 +109,7 @@ class Jeu(monstres: List<Personnage>) {
         val FuturPVMax = 50 + 10 * Futurendurance
 
         // choisir classe
-        val choixClasse = mutableMapOf(
-            1 to "Guerrier",
-            2 to "Mage",
-            3 to "Voleur")
+        val choixClasse = readln().toInt()
 
         // Création du personnage avec les attributs choisis
         var hero = Personnage(
@@ -128,16 +126,14 @@ class Jeu(monstres: List<Personnage>) {
         )
 
         if(choixClasse == 1){
-            hero= Guerrier():
-        }
-        else if(choixClasse ==2){
-            hero = Mage()
-        }
-        else if(choixClasse ==3 ){
-            hero = Voleur()
-        }
+            hero= Guerrier(futurNom,FuturPVMax,FuturPVMax,Futurattaque,FuturDef,Futurendurance,Futurvitesse,joueur.inventaire,joueur.armePrincipale,joueur.armure )}
 
-
+        else if(choixClasse == 2){
+            hero = Mage(futurNom,FuturPVMax,FuturPVMax,Futurattaque,FuturDef,Futurendurance,Futurvitesse,joueur.inventaire,joueur.armePrincipale,joueur.armure, MutableList<Sort>() )
+        }
+        else if(choixClasse == 3 ){
+            hero = Voleur(futurNom,FuturPVMax,FuturPVMax,Futurattaque,FuturDef,Futurendurance,Futurvitesse,joueur.inventaire,joueur.armePrincipale,joueur.armure)
+        }
 
 
 

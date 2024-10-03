@@ -53,7 +53,7 @@ open class Personnage(
      * @param arme Arme utilisée pour l'attaque
      * Agit sur les points de vie de la cible et affiche le résultat dans le terminal.
      */
-    fun attaque(adversaire: Personnage) {
+    open fun attaque(adversaire: Personnage) {
         var degats= this.attaque/2 + armePrincipale!!.calculerdegat()
         degats = degats - adversaire.calculeDefense()
         if(degats<=0) degats = 1
